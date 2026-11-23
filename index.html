@@ -3,81 +3,212 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#101827">
+  <meta name="theme-color" content="#0b1220">
   <meta name="description" content="California State Roleplay — join our community on Discord.">
   <title>California State Roleplay</title>
   <style>
-    :root { color-scheme: dark; --bg:#0b1220; --panel:#131f31; --blue:#3978df; --text:#f4f7fc; --muted:#b6c2d3; }
+    :root {
+      color-scheme: dark;
+      --bg: #0b1220;
+      --surface: #111c2d;
+      --surface-soft: #152238;
+      --line: #263750;
+      --blue: #4d83e6;
+      --blue-soft: #1c3458;
+      --text: #f4f7fc;
+      --muted: #aab8cc;
+    }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body { margin:0; min-height:100vh; background:var(--bg); color:var(--text); font-family:Arial,Helvetica,sans-serif; }
-    header { width:min(1100px, calc(100% - 32px)); margin:28px auto 0; }
-    .banner { display:block; width:100%; height:auto; max-height:360px; object-fit:cover; border-radius:16px; border:1px solid #34445c; background:#17263b; }
-    .banner-fallback { min-height:190px; display:grid; place-items:center; padding:28px; text-align:center; border-radius:16px; border:1px dashed #526782; background:linear-gradient(135deg,#17263b,#233d62); color:#dce8fb; }
-    main { width:min(1100px, calc(100% - 32px)); margin:20px auto 60px; }
-    .invite { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:18px; padding:22px 24px; background:var(--panel); border:1px solid #293b55; border-radius:14px; }
-    .invite h1 { margin:0 0 7px; font-size:clamp(1.25rem,3vw,1.8rem); }
-    .invite p { margin:0; color:var(--muted); line-height:1.5; }
-    .button { display:inline-block; padding:13px 20px; border-radius:9px; background:var(--blue); color:white; font-weight:700; text-decoration:none; transition:background .15s, transform .15s; white-space:nowrap; }
-    .button:hover { background:#5089ed; transform:translateY(-1px); }
-
-    .owners { margin-top:24px; }
-    .owners > h2 { margin:0 0 14px; font-size:1.35rem; }
-    .owner-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
-    .owner-card { padding:22px; background:var(--panel); border:1px solid #293b55; border-radius:14px; }
-    .owner-role { display:inline-block; padding:6px 10px; margin-bottom:10px; border-radius:7px; background:#243e66; color:#cfe0ff; font-size:.78rem; font-weight:800; letter-spacing:.08em; }
-    .owner-card h3 { margin:0 0 6px; font-size:1.2rem; }
-    .owner-card p { margin:5px 0; color:var(--muted); line-height:1.55; }
-    .owner-card .owner-note { margin-top:14px; color:var(--text); }
-    @media (max-width:600px) { .owner-grid { grid-template-columns:1fr; } }
-    .welcome { margin-top:24px; padding:26px; border-radius:14px; background:#101a2a; border:1px solid #24344b; }
-    .welcome h2 { margin:0 0 10px; font-size:1.35rem; }
-    .welcome p { margin:0; color:var(--muted); line-height:1.7; }
-    footer { padding:22px 16px; text-align:center; color:#8796aa; font-size:.9rem; border-top:1px solid #1d2a3d; }
-    @media (max-width:600px) { header { margin-top:16px; } .invite { padding:19px; } .button { width:100%; text-align:center; } }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: radial-gradient(ellipse at 50% -20%, #1b3151 0, var(--bg) 55%);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    .page { width: min(1040px, calc(100% - 36px)); margin: 30px auto 54px; }
+    .banner {
+      display: block;
+      width: 100%;
+      max-height: 340px;
+      object-fit: cover;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: 0 18px 50px #0005;
+    }
+    main { margin-top: 22px; }
+    .invite {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+      padding: 23px 26px;
+      background: linear-gradient(120deg, #172943, var(--surface));
+      border: 1px solid var(--line);
+      border-radius: 16px;
+    }
+    .eyebrow {
+      margin: 0 0 7px;
+      color: #8fb5ff;
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    .invite h1 { margin: 0; font-size: clamp(1.35rem, 3vw, 1.8rem); letter-spacing: -.035em; }
+    .invite p { margin: 7px 0 0; color: var(--muted); line-height: 1.55; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 19px;
+      border-radius: 10px;
+      background: var(--blue);
+      color: white;
+      font-size: .93rem;
+      font-weight: 750;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background .18s ease, transform .18s ease;
+    }
+    .button:hover { background: #6495ef; transform: translateY(-1px); }
+    .owners { margin-top: 42px; }
+    .section-heading { margin-bottom: 17px; }
+    .section-heading h2 { margin: 0; font-size: 1.45rem; letter-spacing: -.025em; }
+    .section-heading p { margin: 6px 0 0; color: var(--muted); font-size: .94rem; }
+    .owner-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .owner-card {
+      position: relative;
+      overflow: hidden;
+      padding: 22px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+    }
+    .owner-card::before {
+      position: absolute;
+      inset: 0 0 auto;
+      height: 3px;
+      background: linear-gradient(90deg, var(--blue), #7cafff);
+      content: "";
+    }
+    .profile { display: flex; align-items: center; gap: 14px; }
+    .avatar {
+      display: grid;
+      flex: 0 0 54px;
+      width: 54px;
+      height: 54px;
+      place-items: center;
+      border: 1px solid #5276ad;
+      border-radius: 50%;
+      background: var(--blue-soft);
+      color: #e6efff;
+      font-size: 1.25rem;
+      font-weight: 800;
+    }
+    .identity { min-width: 0; }
+    .role {
+      display: inline-block;
+      margin-bottom: 5px;
+      color: #9fc0ff;
+      font-size: .68rem;
+      font-weight: 850;
+      letter-spacing: .13em;
+    }
+    .identity h3 { margin: 0; overflow-wrap: anywhere; font-size: 1.13rem; }
+    .handle { margin: 4px 0 0; color: var(--muted); font-size: .88rem; }
+    .card-divider { height: 1px; margin: 18px 0 14px; background: var(--line); }
+    .owner-detail { margin: 0; color: #d7e0ed; font-size: .9rem; line-height: 1.65; }
+    .availability-label {
+      margin: 0 0 5px;
+      color: var(--muted);
+      font-size: .72rem;
+      font-weight: 750;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .welcome {
+      margin-top: 22px;
+      padding: 24px 26px;
+      background: #0f1a2a;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+    }
+    .welcome h2 { margin: 0 0 8px; font-size: 1.18rem; }
+    .welcome p { margin: 0; color: var(--muted); line-height: 1.7; }
+    footer { padding: 24px 16px 0; color: #7f90a8; text-align: center; font-size: .82rem; }
+    @media (max-width: 650px) {
+      .page { width: min(100% - 24px, 540px); margin-top: 14px; }
+      .banner { border-radius: 13px; }
+      .invite { align-items: stretch; flex-direction: column; padding: 20px; }
+      .button { width: 100%; }
+      .owners { margin-top: 32px; }
+      .owner-grid { grid-template-columns: 1fr; gap: 12px; }
+      .owner-card { padding: 19px; }
+    }
   </style>
 </head>
 <body>
-  <header>
-    <img class="banner" src="banner.jpg" alt="California State Roleplay banner"
-      onerror="this.style.display='none';document.getElementById('banner-fallback').hidden=false;">
-  </header>
+  <div class="page">
+    <header>
+      <img class="banner" src="banner.jpg" alt="California State Roleplay banner">
+    </header>
 
-  <main>
-    <section class="invite" aria-labelledby="invite-title">
-      <div>
-        <h1 id="invite-title">Join California State Roleplay</h1>
-        <p>Connect with the community and get started on Discord.</p>
-      </div>
-      <a class="button" href="https://discord.com/invite/CSRPFUN" target="_blank" rel="noopener noreferrer">Join our Discord</a>
-    </section>
+    <main>
+      <section class="invite" aria-labelledby="invite-title">
+        <div>
+          <p class="eyebrow">California State Roleplay</p>
+          <h1 id="invite-title">Join the community</h1>
+          <p>Connect with our members and get started on Discord.</p>
+        </div>
+        <a class="button" href="https://discord.com/invite/CSRPFUN" target="_blank" rel="noopener noreferrer">Join our Discord ↗</a>
+      </section>
 
+      <section class="owners" aria-labelledby="owners-title">
+        <div class="section-heading">
+          <h2 id="owners-title">Leadership team</h2>
+          <p>Meet the people leading California State Roleplay.</p>
+        </div>
+        <div class="owner-grid">
+          <article class="owner-card">
+            <div class="profile">
+              <div class="avatar" aria-hidden="true">M</div>
+              <div class="identity">
+                <span class="role">OWNER</span>
+                <h3>Morgan the FIRST</h3>
+                <p class="handle">clx404 · USA</p>
+              </div>
+            </div>
+            <div class="card-divider"></div>
+            <p class="owner-detail">Owner of CSRP</p>
+          </article>
 
-    <section class="owners" aria-labelledby="owners-title">
-      <h2 id="owners-title">Owner Team</h2>
-      <div class="owner-grid">
-        <article class="owner-card">
-          <div class="owner-role">OWNER</div>
-          <h3>Morgan the FIRST</h3>
-          <p>clx404 · USA</p>
-          <p class="owner-note">Owner of CSRP</p>
-        </article>
-        <article class="owner-card">
-          <div class="owner-role">VICE OWNER</div>
-          <h3>!VO | Holden</h3>
-          <p>holdenog · he/him</p>
-          <p class="owner-note">Not available during these times:<br>Monday – Friday: 12 AM – 5 PM<br>Saturday – Sunday: 10 PM – 7 AM</p>
-        </article>
-      </div>
-    </section>
+          <article class="owner-card">
+            <div class="profile">
+              <div class="avatar" aria-hidden="true">H</div>
+              <div class="identity">
+                <span class="role">VICE OWNER</span>
+                <h3>!VO | Holden</h3>
+                <p class="handle">holdenog · he/him</p>
+              </div>
+            </div>
+            <div class="card-divider"></div>
+            <p class="availability-label">Unavailable</p>
+            <p class="owner-detail">Monday–Friday: 12 AM–5 PM<br>Saturday–Sunday: 10 PM–7 AM</p>
+          </article>
+        </div>
+      </section>
 
-    <section class="welcome">
-      <h2>Welcome to California State Roleplay</h2>
-      <p>Thanks for visiting our community homepage. Use the Discord link above to join the server, meet the community, and find out more about California State Roleplay.</p>
-    </section>
-  </main>
+      <section class="welcome">
+        <h2>Welcome to California State Roleplay</h2>
+        <p>Thanks for visiting our community homepage. Join the Discord server to meet the community and learn more about California State Roleplay.</p>
+      </section>
+    </main>
 
-  <footer>© <span id="year"></span> California State Roleplay</footer>
+    <footer>© <span id="year"></span> California State Roleplay</footer>
+  </div>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
