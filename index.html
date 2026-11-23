@@ -74,6 +74,10 @@
       transition: background .18s ease, transform .18s ease;
     }
     .button:hover { background: #6495ef; transform: translateY(-1px); }
+    .button.secondary { background: #27364d; border: 1px solid #405675; }
+    .button.secondary:hover { background: #354965; }
+    .invite-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+    @media (max-width: 650px) { .invite-actions { flex-direction: column; } }
     .owners { margin-top: 42px; }
     .section-heading { margin-bottom: 17px; }
     .section-heading h2 { margin: 0; font-size: 1.45rem; letter-spacing: -.025em; }
@@ -164,7 +168,10 @@
           <h1 id="invite-title">Join the community</h1>
           <p>Connect with our members and get started on Discord.</p>
         </div>
-        <a class="button" href="https://discord.com/invite/CSRPFUN" target="_blank" rel="noopener noreferrer">Join our Discord ↗</a>
+        <div class="invite-actions">
+          <a class="button" href="https://discord.com/invite/CSRPFUN" target="_blank" rel="noopener noreferrer">Join our Discord ↗</a>
+          <a class="button secondary" href="ticket-help.html">Ticket Help</a>
+        </div>
       </section>
 
       <section class="owners" aria-labelledby="owners-title">
