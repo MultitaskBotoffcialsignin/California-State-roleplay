@@ -139,6 +139,7 @@
     .welcome h2 { margin: 0 0 8px; font-size: 1.18rem; }
     .welcome p { margin: 0; color: var(--muted); line-height: 1.7; }
     footer { padding: 24px 16px 0; color: #7f90a8; text-align: center; font-size: .82rem; }
+    .credit { position: fixed; right: 16px; bottom: 12px; z-index: 10; padding: 7px 11px; border: 1px solid var(--line); border-radius: 999px; background: #111c2deF; color: #aab8cc; font-size: .72rem; box-shadow: 0 4px 18px #0004; }
     @media (max-width: 650px) {
       .page { width: min(100% - 24px, 540px); margin-top: 14px; }
       .banner { border-radius: 13px; }
@@ -208,6 +209,7 @@
     </main>
 
     <footer>© <span id="year"></span> California State Roleplay</footer>
+    <div class="credit">made by Da Tesla Dumpster truck</div>
   </div>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
