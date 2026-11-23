@@ -20,6 +20,16 @@
     .invite p { margin:0; color:var(--muted); line-height:1.5; }
     .button { display:inline-block; padding:13px 20px; border-radius:9px; background:var(--blue); color:white; font-weight:700; text-decoration:none; transition:background .15s, transform .15s; white-space:nowrap; }
     .button:hover { background:#5089ed; transform:translateY(-1px); }
+
+    .owners { margin-top:24px; }
+    .owners > h2 { margin:0 0 14px; font-size:1.35rem; }
+    .owner-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+    .owner-card { padding:22px; background:var(--panel); border:1px solid #293b55; border-radius:14px; }
+    .owner-role { display:inline-block; padding:6px 10px; margin-bottom:10px; border-radius:7px; background:#243e66; color:#cfe0ff; font-size:.78rem; font-weight:800; letter-spacing:.08em; }
+    .owner-card h3 { margin:0 0 6px; font-size:1.2rem; }
+    .owner-card p { margin:5px 0; color:var(--muted); line-height:1.55; }
+    .owner-card .owner-note { margin-top:14px; color:var(--text); }
+    @media (max-width:600px) { .owner-grid { grid-template-columns:1fr; } }
     .welcome { margin-top:24px; padding:26px; border-radius:14px; background:#101a2a; border:1px solid #24344b; }
     .welcome h2 { margin:0 0 10px; font-size:1.35rem; }
     .welcome p { margin:0; color:var(--muted); line-height:1.7; }
@@ -40,6 +50,25 @@
         <p>Connect with the community and get started on Discord.</p>
       </div>
       <a class="button" href="https://discord.com/invite/CSRPFUN" target="_blank" rel="noopener noreferrer">Join our Discord</a>
+    </section>
+
+
+    <section class="owners" aria-labelledby="owners-title">
+      <h2 id="owners-title">Owner Team</h2>
+      <div class="owner-grid">
+        <article class="owner-card">
+          <div class="owner-role">OWNER</div>
+          <h3>Morgan the FIRST</h3>
+          <p>clx404 · USA</p>
+          <p class="owner-note">Owner of CSRP</p>
+        </article>
+        <article class="owner-card">
+          <div class="owner-role">VICE OWNER</div>
+          <h3>!VO | Holden</h3>
+          <p>holdenog · he/him</p>
+          <p class="owner-note">Not available during these times:<br>Monday – Friday: 12 AM – 5 PM<br>Saturday – Sunday: 10 PM – 7 AM</p>
+        </article>
+      </div>
     </section>
 
     <section class="welcome">
