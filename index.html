@@ -166,8 +166,7 @@
     @keyframes tearRight{to{transform:translate(105%,2%) rotate(4deg);opacity:0}}
     @media(prefers-reduced-motion:reduce){.tear-layer{display:none}}
 
-    .final-screen{position:fixed;inset:0;z-index:10001;display:grid;place-items:center;background:#050505;color:#ff2424;text-align:center;padding:24px;opacity:0;visibility:hidden;transition:opacity .7s ease,visibility .7s ease}
-    .final-screen.show{opacity:1;visibility:visible}
+    .final-screen{position:fixed;inset:0;z-index:10001;display:grid;place-items:center;background:#050505;color:#ff2424;text-align:center;padding:24px;opacity:1;visibility:visible}
     .final-screen h2{margin:0;font-size:clamp(2.8rem,10vw,8rem);font-weight:1000;line-height:1.02;text-shadow:0 0 24px #ff000099}
     .final-screen p{margin:18px 0 0;color:#fff;font-size:clamp(1rem,3vw,2rem);font-weight:800;letter-spacing:.12em}
 </style>
@@ -188,32 +187,7 @@
      <div class="final-screen" id="finalScreen" role="status" aria-live="polite">
     <div><h2>WEBSITE NOW DOWN</h2><p>THIS PAGE IS NO LONGER AVAILABLE</p></div>
   </div>
-  <script>
-    window.addEventListener("load", () => {
-      const finalScreen = document.getElementById("finalScreen");
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        finalScreen.classList.add("show");
-        return;
-      }
-      const code = document.querySelector(".code-background");
-      const page = document.querySelector(".down-page");
-      let finished = 0;
-      ["tear-left","tear-right"].forEach((side) => {
-        const layer = document.createElement("div");
-        layer.className = "tear-layer " + side;
-        layer.append(code.cloneNode(true), page.cloneNode(true));
-        layer.addEventListener("animationend", () => {
-          finished += 1;
-          if (finished === 2) {
-            document.querySelector(".code-background").style.visibility = "hidden";
-            document.querySelector(".down-page").style.visibility = "hidden";
-            finalScreen.classList.add("show");
-          }
-        }, { once:true });
-        document.body.appendChild(layer);
-      });
-    });
-  </script>ow.addEventListener("load", () => {
+w.addEventListener("load", () => {
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
       const code = document.querySelector(".code-background");
       const page = document.querySelector(".down-page");
