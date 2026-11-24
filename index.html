@@ -157,23 +157,51 @@
     .code-background { position:fixed; inset:0; z-index:0; overflow:hidden; pointer-events:none; display:grid; grid-template-columns:repeat(5,1fr); gap:18px; padding:10px 3vw; opacity:.55; background:#050805; }
     .code-column { color:#20ff45; font:700 clamp(12px,1.35vw,19px)/1.65 ui-monospace,SFMono-Regular,Consolas,monospace; overflow-wrap:anywhere; word-break:break-all; text-shadow:0 0 8px #00ff35; opacity:.8; }
     .down-page { position:relative; z-index:1; }
-  </style>
+  
+    .tear-layer{position:fixed;inset:0;z-index:9999;pointer-events:none;overflow:hidden;animation-duration:2.8s;animation-delay:4s;animation-fill-mode:forwards;animation-timing-function:cubic-bezier(.65,0,.85,.25)}
+    .tear-layer .code-background,.tear-layer .down-page{position:absolute;inset:0;width:100%;height:100%;min-height:100%;margin:0}
+    .tear-left{clip-path:polygon(0 0,50% 0,48% 10%,52% 20%,48% 30%,52% 40%,48% 50%,52% 60%,48% 70%,52% 80%,48% 90%,50% 100%,0 100%);animation-name:tearLeft}
+    .tear-right{clip-path:polygon(50% 0,100% 0,100% 100%,50% 100%,52% 90%,48% 80%,52% 70%,48% 60%,52% 50%,48% 40%,52% 30%,48% 20%,52% 10%);animation-name:tearRight}
+    @keyframes tearLeft{to{transform:translate(-105%,-2%) rotate(-4deg);opacity:0}}
+    @keyframes tearRight{to{transform:translate(105%,2%) rotate(4deg);opacity:0}}
+    @media(prefers-reduced-motion:reduce){.tear-layer{display:none}}
+</style>
 </head>
 <body>
-<div class="code-background" aria-hidden="true">
-  <div class="code-column">48392017 66018429 92710583 00184726 59382016 77492018 28374610 91827364 55019283 67283910</div>
-  <div class="code-column">A19F 82D0 7C31 09B6 4E28 F190 6D72 3A85 B019 7F42 91CE 2D60</div>
-  <div class="code-column">92837465 10293847 66550192 83746109 27481930 55002817 63920184</div>
-  <div class="code-column">7B2E 9F10 4A83 C620 1D75 88B3 0E49 6C21 F502 3A97 81D4</div>
-  <div class="code-column">01928374 65019283 74650192 83746501 92837465 01928374 65019283</div>
-</div>
+  <div class="code-background" aria-hidden="true">
+    <div class="code-column">48392017 66018429 92710583 00184726 59382016 77492018 28374610 91827364 55019283 67283910</div>
+    <div class="code-column">A19F 82D0 7C31 09B6 4E28 F190 6D72 3A85 B019 7F42 91CE 2D60</div>
+    <div class="code-column">92837465 10293847 66550192 83746109 27481930 55002817 63920184</div>
+    <div class="code-column">7B2E 9F10 4A83 C620 1D75 88B3 0E49 6C21 F502 3A97 81D4</div>
+    <div class="code-column">01928374 65019283 74650192 83746501 92837465 01928374 65019283</div>
+  </div>
   <main class="down-page">
-    <div class="tape tape-one" aria-hidden="true"><span>CAUTION</span><span>CAUTION</span><span>CAUTION</span><span>CAUTION</span><span>CAUTION</span></div>
-    <div class="tape tape-two" aria-hidden="true"><span>CAUTION</span><span>CAUTION</span><span>CAUTION</span><span>CAUTION</span><span>CAUTION</span></div>
-    <div class="tape tape-three" aria-hidden="true"><span>CAUTION</span><span>CAUTION</span><span>CAUTION</span><span>CAUTION</span><span>CAUTION</span></div>
-    <div class="tape tape-four" aria-hidden="true"><span>CAUTION</span><span>CAUTION</span><span>CAUTION</span><span>CAUTION</span><span>CAUTION</span></div>
-    <section class="down-message"><p class="down-kicker">FUCK YOU</p><h1>WEBSITE DOWN</h1><p class="taken">TAKEN DOWN BY MORGAN AND HOLDEN</p><p class="credit-line">(ass holes - by A Tesla Dumpster Man)</p></section>
+    <div class="tape tape-one" aria-hidden="true"><span>UNDER CONSTRUCTION</span><span>UNDER CONSTRUCTION</span><span>UNDER CONSTRUCTION</span></div>
+    <div class="tape tape-two" aria-hidden="true"><span>UNDER CONSTRUCTION</span><span>UNDER CONSTRUCTION</span><span>UNDER CONSTRUCTION</span></div>
+    <section class="down-message">
+      <p class="down-kicker">FUCK YOU</p>
+      <h1>WEBSITE DOWN</h1>
+      <p class="taken">TAKEN DOWN BY MORGAN AND HOLDEN</p>
+      <p class="credit-line">(ass holes - by A Tesla Dumpster Man)</p>
+    </section>
+    <section class="message-evidence" aria-labelledby="evidence-title">
+      <h2 id="evidence-title">MESSAGES ABOUT THE WEBSITE</h2>
+      <p>The original messages are shown below for context.</p>
+      <div class="evidence-placeholder">Screenshot panels will appear here once the two image files are added to the repository.</div>
+    </section>
   </main>
-</body>{.down-page{padding:18px}.down-message{padding:26px 10px}.tape{width:220vw;height:38px}}
-  </style></body>
+  <script>
+    window.addEventListener("load", () => {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      const code = document.querySelector(".code-background");
+      const page = document.querySelector(".down-page");
+      ["tear-left","tear-right"].forEach((side) => {
+        const layer = document.createElement("div");
+        layer.className = "tear-layer " + side;
+        layer.append(code.cloneNode(true), page.cloneNode(true));
+        document.body.appendChild(layer);
+      });
+    });
+  </script>
+</body>
 </html>
