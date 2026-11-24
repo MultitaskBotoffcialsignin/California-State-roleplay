@@ -1,203 +1,172 @@
+
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0b1220">
+  <meta name="theme-color" content="#050505">
   <meta name="description" content="This website is currently down and unavailable.">
   <title>This website is currently down</title>
+
   <style>
-    :root {
-      color-scheme: dark;
-      --bg: #0b1220;
-      --surface: #111c2d;
-      --surface-soft: #152238;
-      --line: #263750;
-      --blue: #4d83e6;
-      --blue-soft: #1c3458;
-      --text: #f4f7fc;
-      --muted: #aab8cc;
+    * {
+      box-sizing: border-box;
     }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
       min-height: 100vh;
-      background: radial-gradient(ellipse at 50% -20%, #1b3151 0, var(--bg) 55%);
-      color: var(--text);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
-    .page { width: min(1040px, calc(100% - 36px)); margin: 30px auto 54px; }
-    .notice { margin-bottom: 18px; padding: 16px 20px; border: 2px solid #ff3333; border-radius: 12px; background: #4a0808; color: #fff; text-align: center; font-size: clamp(1.8rem, 6vw, 3.2rem); font-weight: 950; letter-spacing: .08em; text-shadow: 0 2px 12px #ff000088; }
-    .banner {
-      display: block;
-      width: 100%;
-      max-height: 340px;
-      object-fit: cover;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      box-shadow: 0 18px 50px #0005;
-    }
-    main { margin-top: 22px; }
-    .invite {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 22px;
-      padding: 23px 26px;
-      background: linear-gradient(120deg, #172943, var(--surface));
-      border: 1px solid var(--line);
-      border-radius: 16px;
-    }
-    .eyebrow {
-      margin: 0 0 7px;
-      color: #8fb5ff;
-      font-size: .72rem;
-      font-weight: 800;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-    }
-    .invite h1 { margin: 0; font-size: clamp(1.35rem, 3vw, 1.8rem); letter-spacing: -.035em; }
-    .invite p { margin: 7px 0 0; color: var(--muted); line-height: 1.55; }
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 46px;
-      padding: 0 19px;
-      border-radius: 10px;
-      background: var(--blue);
-      color: white;
-      font-size: .93rem;
-      font-weight: 750;
-      text-decoration: none;
-      white-space: nowrap;
-      transition: background .18s ease, transform .18s ease;
-    }
-    .button:hover { background: #6495ef; transform: translateY(-1px); }
-    .button.secondary { background: #27364d; border: 1px solid #405675; }
-    .button.secondary:hover { background: #354965; }
-    .invite-actions { display: flex; flex-wrap: wrap; gap: 10px; }
-    @media (max-width: 650px) { .invite-actions { flex-direction: column; } }
-    .owners { margin-top: 42px; }
-    .section-heading { margin-bottom: 17px; }
-    .section-heading h2 { margin: 0; font-size: 1.45rem; letter-spacing: -.025em; }
-    .section-heading p { margin: 6px 0 0; color: var(--muted); font-size: .94rem; }
-    .owner-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
-    .owner-card {
-      position: relative;
       overflow: hidden;
-      padding: 22px;
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: 16px;
+      background: #050505;
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
     }
-    .owner-card::before {
-      position: absolute;
-      inset: 0 0 auto;
-      height: 3px;
-      background: linear-gradient(90deg, var(--blue), #7cafff);
-      content: "";
-    }
-    .profile { display: flex; align-items: center; gap: 14px; }
-    .avatar {
-      display: grid;
-      flex: 0 0 54px;
-      width: 54px;
-      height: 54px;
-      place-items: center;
-      border: 1px solid #5276ad;
-      border-radius: 50%;
-      background: var(--blue-soft);
-      color: #e6efff;
-      font-size: 1.25rem;
-      font-weight: 800;
-    }
-    .identity { min-width: 0; }
-    .role {
-      display: inline-block;
-      margin-bottom: 5px;
-      color: #9fc0ff;
-      font-size: .68rem;
-      font-weight: 850;
-      letter-spacing: .13em;
-    }
-    .identity h3 { margin: 0; overflow-wrap: anywhere; font-size: 1.13rem; }
-    .handle { margin: 4px 0 0; color: var(--muted); font-size: .88rem; }
-    .card-divider { height: 1px; margin: 18px 0 14px; background: var(--line); }
-    .owner-detail { margin: 0; color: #d7e0ed; font-size: .9rem; line-height: 1.65; }
-    .availability-label {
-      margin: 0 0 5px;
-      color: var(--muted);
-      font-size: .72rem;
-      font-weight: 750;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-    }
-    .welcome {
-      margin-top: 22px;
-      padding: 24px 26px;
-      background: #0f1a2a;
-      border: 1px solid var(--line);
-      border-radius: 16px;
-    }
-    .welcome h2 { margin: 0 0 8px; font-size: 1.18rem; }
-    .welcome p { margin: 0; color: var(--muted); line-height: 1.7; }
-    footer { padding: 24px 16px 0; color: #7f90a8; text-align: center; font-size: .82rem; }
-    .credit { position: fixed; right: 16px; bottom: 12px; z-index: 10; padding: 7px 11px; border: 1px solid var(--line); border-radius: 999px; background: #111c2deF; color: #aab8cc; font-size: .72rem; box-shadow: 0 4px 18px #0004; }
-    @media (max-width: 650px) {
-      .page { width: min(100% - 24px, 540px); margin-top: 14px; }
-      .banner { border-radius: 13px; }
-      .invite { align-items: stretch; flex-direction: column; padding: 20px; }
-      .button { width: 100%; }
-      .owners { margin-top: 32px; }
-      .owner-grid { grid-template-columns: 1fr; gap: 12px; }
-      .owner-card { padding: 19px; }
-    }
-    .code-background { position:fixed; inset:0; z-index:0; overflow:hidden; pointer-events:none; display:grid; grid-template-columns:repeat(5,1fr); gap:18px; padding:10px 3vw; opacity:.55; background:#050805; }
-    .code-column { color:#20ff45; font:700 clamp(12px,1.35vw,19px)/1.65 ui-monospace,SFMono-Regular,Consolas,monospace; overflow-wrap:anywhere; word-break:break-all; text-shadow:0 0 8px #00ff35; opacity:.8; }
-    .down-page { position:relative; z-index:1; }
-  
-    .tear-layer{position:fixed;inset:0;z-index:9999;pointer-events:none;overflow:hidden;animation-duration:2.8s;animation-delay:4s;animation-fill-mode:forwards;animation-timing-function:cubic-bezier(.65,0,.85,.25)}
-    .tear-layer .code-background,.tear-layer .down-page{position:absolute;inset:0;width:100%;height:100%;min-height:100%;margin:0}
-    .tear-left{clip-path:polygon(0 0,50% 0,48% 10%,52% 20%,48% 30%,52% 40%,48% 50%,52% 60%,48% 70%,52% 80%,48% 90%,50% 100%,0 100%);animation-name:tearLeft}
-    .tear-right{clip-path:polygon(50% 0,100% 0,100% 100%,50% 100%,52% 90%,48% 80%,52% 70%,48% 60%,52% 50%,48% 40%,52% 30%,48% 20%,52% 10%);animation-name:tearRight}
-    @keyframes tearLeft{to{transform:translate(-105%,-2%) rotate(-4deg);opacity:0}}
-    @keyframes tearRight{to{transform:translate(105%,2%) rotate(4deg);opacity:0}}
-    @media(prefers-reduced-motion:reduce){.tear-layer{display:none}}
 
-    .final-screen{position:fixed;inset:0;z-index:10001;display:grid;place-items:center;background:#050505;color:#ff2424;text-align:center;padding:24px;opacity:1;visibility:visible}
-    .final-screen h2{margin:0;font-size:clamp(2.8rem,10vw,8rem);font-weight:1000;line-height:1.02;text-shadow:0 0 24px #ff000099}
-    .final-screen p{margin:18px 0 0;color:#fff;font-size:clamp(1rem,3vw,2rem);font-weight:800;letter-spacing:.12em}
-</style>
+    .code-background {
+      position: fixed;
+      inset: 0;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+      padding: 15px;
+      opacity: 0.25;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .code-column {
+      color: #00ff41;
+      font-family: monospace;
+      font-size: 17px;
+      font-weight: bold;
+      line-height: 1.8;
+      overflow-wrap: anywhere;
+      text-shadow: 0 0 8px #00ff41;
+      animation: scroll 15s linear infinite;
+    }
+
+    @keyframes scroll {
+      from { transform: translateY(0); }
+      to { transform: translateY(-50%); }
+    }
+
+    .final-screen {
+      position: relative;
+      z-index: 2;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 25px;
+      background: radial-gradient(
+        ellipse at center,
+        #260707 0%,
+        #100303 45%,
+        transparent 100%
+      );
+    }
+
+    h1 {
+      margin: 0;
+      color: #ff2424;
+      font-size: clamp(2.5rem, 9vw, 7rem);
+      font-weight: 1000;
+      line-height: 1.05;
+      text-shadow:
+        0 0 10px #ff0000,
+        0 0 25px #ff000088,
+        0 0 55px #ff000055;
+      animation: pulse 2s ease-in-out infinite alternate;
+    }
+
+    p {
+      margin-top: 24px;
+      color: white;
+      font-size: clamp(1rem, 3vw, 1.8rem);
+      font-weight: 800;
+      letter-spacing: 0.12em;
+    }
+
+    .status {
+      margin-top: 35px;
+      padding: 10px 20px;
+      border: 1px solid #ff2424;
+      border-radius: 8px;
+      color: #ff5555;
+      background: #300808;
+      font-family: monospace;
+      letter-spacing: 0.12em;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 15px;
+      left: 0;
+      width: 100%;
+      z-index: 3;
+      text-align: center;
+      color: #777;
+      font-size: 12px;
+    }
+
+    @keyframes pulse {
+      from { opacity: 0.85; }
+      to { opacity: 1; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+      }
+    }
+  </style>
 </head>
+
 <body>
+
   <div class="code-background" aria-hidden="true">
-    <div class="code-column">48392017 66018429 92710583 00184726 59382016 77492018 28374610 91827364 55019283 67283910</div>
-    <div class="code-column">A19F 82D0 7C31 09B6 4E28 F190 6D72 3A85 B019 7F42 91CE 2D60</div>
-    <div class="code-column">92837465 10293847 66550192 83746109 27481930 55002817 63920184</div>
-    <div class="code-column">7B2E 9F10 4A83 C620 1D75 88B3 0E49 6C21 F502 3A97 81D4</div>
-    <div class="code-column">01928374 65019283 74650192 83746501 92837465 01928374 65019283</div>
+    <div class="code-column">
+      48392017<br>66018429<br>92710583<br>00184726<br>
+      59382016<br>77492018<br>28374610<br>91827364<br>
+      55019283<br>67283910<br>10293847<br>66550192
+    </div>
+
+    <div class="code-column">
+      A19F<br>82D0<br>7C31<br>09B6<br>4E28<br>F190<br>
+      6D72<br>3A85<br>B019<br>7F42<br>91CE<br>2D60
+    </div>
+
+    <div class="code-column">
+      92837465<br>10293847<br>66550192<br>83746109<br>
+      27481930<br>55002817<br>63920184<br>01928374
+    </div>
+
+    <div class="code-column">
+      7B2E<br>9F10<br>4A83<br>C620<br>1D75<br>88B3<br>
+      0E49<br>6C21<br>F502<br>3A97<br>81D4
+    </div>
+
+    <div class="code-column">
+      01928374<br>65019283<br>74650192<br>83746501<br>
+      92837465<br>01928374<br>65019283
+    </div>
   </div>
-  <main class="down-page">
-    <div class="tape tape-one" aria-hidden="true"><span>UNDER CONSTRUCTION</span><span>UNDER CONSTRUCTION</span><span>UNDER CONSTRUCTION</span></div>
-    <div class="tape tape-two" aria-hidden="true"><span>UNDER CONSTRUCTION</span><span>UNDER CONSTRUCTION</span><span>UNDER CONSTRUCTION</span></div>
-    <section class="down-message">
-      <p class="down-kicker">FUCK YOU</p>
-     <div class="final-screen" id="finalScreen" role="status" aria-live="polite">
-    <div><h2>WEBSITE NOW DOWN</h2><p>THIS PAGE IS NO LONGER AVAILABLE</p></div>
-  </div>
-w.addEventListener("load", () => {
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-      const code = document.querySelector(".code-background");
-      const page = document.querySelector(".down-page");
-      ["tear-left","tear-right"].forEach((side) => {
-        const layer = document.createElement("div");
-        layer.className = "tear-layer " + side;
-        layer.append(code.cloneNode(true), page.cloneNode(true));
-        document.body.appendChild(layer);
-      });
-    });
-  </script>
+
+  <main class="final-screen">
+    <h1>WEBSITE NOW DOWN</h1>
+
+    <p>THIS PAGE IS NO LONGER AVAILABLE</p>
+
+    <div class="status">
+      STATUS: OFFLINE
+    </div>
+  </main>
+
+  <footer>
+    THIS WEBSITE IS CURRENTLY UNAVAILABLE
+  </footer>
+
 </body>
 </html>
