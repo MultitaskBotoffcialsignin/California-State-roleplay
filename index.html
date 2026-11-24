@@ -157,69 +157,39 @@
   </style>
 </head>
 <body>
-  <div class="page">
-    <div class="notice">FUCK YOU</div>
-    <header>
-      <img class="banner" src="banner.jpg" alt="California State Roleplay banner">
-    </header>
-
-    <main>
-      <section class="invite" aria-labelledby="invite-title">
-        <div>
-          <p class="eyebrow">California State Roleplay</p>
-          <h1 id="invite-title">Join the community</h1>
-          <p>Connect with our members and get started on Discord.</p>
-        </div>
-        <div class="invite-actions">
-          <a class="button" href="https://discord.com/invite/CSRPFUN" target="_blank" rel="noopener noreferrer">Join our Discord ↗</a>
-          <a class="button secondary" href="ticket-help.html">Ticket Help</a>
-        </div>
-      </section>
-
-      <section class="owners" aria-labelledby="owners-title">
-        <div class="section-heading">
-          <h2 id="owners-title">Leadership team</h2>
-          <p>Meet the people leading California State Roleplay.</p>
-        </div>
-        <div class="owner-grid">
-          <article class="owner-card">
-            <div class="profile">
-              <div class="avatar" aria-hidden="true">M</div>
-              <div class="identity">
-                <span class="role">OWNER</span>
-                <h3>Morgan the FIRST</h3>
-                <p class="handle">clx404 · USA</p>
-              </div>
-            </div>
-            <div class="card-divider"></div>
-            <p class="owner-detail">Owner of CSRP</p>
-          </article>
-
-          <article class="owner-card">
-            <div class="profile">
-              <div class="avatar" aria-hidden="true">H</div>
-              <div class="identity">
-                <span class="role">VICE OWNER</span>
-                <h3>!VO | Holden</h3>
-                <p class="handle">holdenog · he/him</p>
-              </div>
-            </div>
-            <div class="card-divider"></div>
-            <p class="availability-label">Unavailable</p>
-            <p class="owner-detail">Monday–Friday: 12 AM–5 PM<br>Saturday–Sunday: 10 PM–7 AM</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="welcome">
-        <h2>Welcome to California State Roleplay</h2>
-        <p>Thanks for visiting our community homepage. Join the Discord server to meet the community and learn more about California State Roleplay.</p>
-      </section>
-    </main>
-
-    <footer>© <span id="year"></span> California State Roleplay</footer>
-    <div class="credit">made by Da Tesla Dumpster truck</div>
-  </div>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <main class="down-page">
+    <div class="tape tape-top" aria-hidden="true"></div>
+    <div class="tape tape-bottom" aria-hidden="true"></div>
+    <div class="tape tape-left" aria-hidden="true"></div>
+    <div class="tape tape-right" aria-hidden="true"></div>
+    <section class="down-message">
+      <p class="down-kicker">FUCK YOU</p>
+      <h1>WEBSITE DOWN</h1>
+      <p class="taken">TAKEN DOWN BY MORGAN AND HOLDEN</p>
+      <p class="credit-line">(ass holes - by A Tesla Dumpster Man)</p>
+    </section>
+  </main>
+  <style>
+    body { margin:0; min-height:100vh; background:#080808; color:#fff; font-family:Arial,Helvetica,sans-serif; }
+    .down-page { position:relative; display:grid; place-items:center; min-height:100vh; padding:100px 82px; overflow:hidden; }
+    .down-message { width:min(100%,1050px); padding:clamp(28px,6vw,70px) 24px; text-align:center; background:#101010; border:3px solid #d71920; box-shadow:0 0 35px #d7192044; z-index:1; }
+    .down-kicker { margin:0 0 22px; color:#ff2424; font-size:clamp(2.5rem,8vw,6.5rem); font-weight:1000; line-height:1; letter-spacing:.04em; }
+    .down-message h1 { margin:0; color:#fff; font-size:clamp(2.8rem,9vw,7rem); font-weight:1000; line-height:1; letter-spacing:.02em; }
+    .taken { margin:24px 0 10px; color:#ff3030; font-size:clamp(1.25rem,4vw,3rem); font-weight:950; line-height:1.15; }
+    .credit-line { margin:0; color:#f2f2f2; font-size:clamp(1rem,2.8vw,1.8rem); font-weight:800; }
+    .tape { position:absolute; z-index:2; background:repeating-linear-gradient(135deg,#ffd400 0 24px,#111 24px 48px); }
+    .tape-top,.tape-bottom { left:0; right:0; height:64px; }
+    .tape-top { top:0; border-bottom:5px solid #ffd400; }
+    .tape-bottom { bottom:0; border-top:5px solid #ffd400; }
+    .tape-left,.tape-right { top:0; bottom:0; width:64px; }
+    .tape-left { left:0; border-right:5px solid #ffd400; }
+    .tape-right { right:0; border-left:5px solid #ffd400; }
+    @media(max-width:600px) {
+      .down-page { padding:82px 52px; }
+      .tape-top,.tape-bottom { height:48px; }
+      .tape-left,.tape-right { width:42px; }
+      .down-message { padding:30px 12px; }
+    }
+  </style>
 </body>
 </html>
