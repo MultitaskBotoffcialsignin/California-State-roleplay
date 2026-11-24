@@ -154,9 +154,19 @@
       .owner-grid { grid-template-columns: 1fr; gap: 12px; }
       .owner-card { padding: 19px; }
     }
+    .code-background { position:fixed; inset:0; z-index:0; overflow:hidden; pointer-events:none; display:grid; grid-template-columns:repeat(5,1fr); gap:18px; padding:10px 3vw; opacity:.55; background:#050805; }
+    .code-column { color:#20ff45; font:700 clamp(12px,1.35vw,19px)/1.65 ui-monospace,SFMono-Regular,Consolas,monospace; overflow-wrap:anywhere; word-break:break-all; text-shadow:0 0 8px #00ff35; opacity:.8; }
+    .down-page { position:relative; z-index:1; }
   </style>
 </head>
 <body>
+<div class="code-background" aria-hidden="true">
+  <div class="code-column">48392017 66018429 92710583 00184726 59382016 77492018 28374610 91827364 55019283 67283910</div>
+  <div class="code-column">A19F 82D0 7C31 09B6 4E28 F190 6D72 3A85 B019 7F42 91CE 2D60</div>
+  <div class="code-column">92837465 10293847 66550192 83746109 27481930 55002817 63920184</div>
+  <div class="code-column">7B2E 9F10 4A83 C620 1D75 88B3 0E49 6C21 F502 3A97 81D4</div>
+  <div class="code-column">01928374 65019283 74650192 83746501 92837465 01928374 65019283</div>
+</div>
   <main class="down-page">
     <div class="tape tape-one" aria-hidden="true"><span>CAUTION</span><span>CAUTION</span><span>CAUTION</span><span>CAUTION</span><span>CAUTION</span></div>
     <div class="tape tape-two" aria-hidden="true"><span>CAUTION</span><span>CAUTION</span><span>CAUTION</span><span>CAUTION</span><span>CAUTION</span></div>
